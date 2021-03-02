@@ -1,0 +1,277 @@
+ContamW 3.4.0.1 0
+
+! rows cols ud uf    T   uT     N     wH  u  Ao    a
+    58   66  0  0 293.650 2    0.00  4.00 0 0.600 0.280
+!  scale     us  orgRow  orgCol  invYaxis showGeom
+  2.500e-01   0      56       1     0        1
+! Ta       Pb      Ws    Wd    rh  day u..
+293.150 101325.0  3.000 270.0 0.000 1 2 0 0 1 ! steady simulation
+293.150 101325.0  3.000 270.0 0.000 1 2 0 0 1 ! wind pressure test
+null ! no weather file
+null ! no contaminant file
+null ! no continuous values file
+null ! no discrete values file
+null ! no WPC file
+null ! no EWC file
+WPC description
+!  Xref    Yref    Zref   angle u
+   0.000   0.000   0.000   0.00 0
+! epsP epsS  tShift  dStart dEnd wp mf wpctrig
+  0.01 0.01 00:00:00   1/1   1/1  0  0  0
+! latd  longtd   tznr  altd  Tgrnd u..
+ 40.00  -90.00  -6.00     0 283.15 2 0
+!sim_af afcalc afmaxi afrcnvg afacnvg afrelax uac Pbldg uPb
+     1      1     30   1e-05   1e-06    0.75   0 50.00   0
+!   slae rs aflmaxi aflcnvg aflinit Tadj
+      0   1    100   1e-06      1    0
+!sim_mf slae rs maxi   relcnvg   abscnvg relax gamma ucc
+    2             30  1.00e-04  1.00e-15 1.250         0 ! (cyclic)
+          0   1  100  1.00e-06  1.00e-15 1.100 1.000   0 ! (non-trace)
+          0   1  100  1.00e-06  1.00e-15 1.100 1.000   0 ! (trace)
+          0   1  100  1.00e-06  1.00e-15 1.100         0 ! (cvode)
+!mf_solver sim_1dz sim_1dd   celldx  sim_vjt udx
+     0        1       0     1.00e-01    0     0
+!cvode    rcnvg     acnvg    dtmax
+   0     1.00e-06  1.00e-13   0.00
+!tsdens relax tsmaxi cnvgSS densZP stackD dodMdt
+   0    0.75    20     1      0      0      0
+!date_st time_st  date_0 time_0   date_1 time_1    t_step   t_list   t_scrn
+  Jan01 00:00:00  Jan01 00:00:00  Jan31 24:00:00  00:01:00 00:05:00 01:00:00
+!restart  date  time
+    0    Jan01 00:00:00
+!list doDlg pfsave zfsave zcsave
+   1     1      1      1      1
+!vol ach -bw cbw exp -bw age -bw
+  0   0   0   0   0   0   0   0
+!rzf rzm rz1 csm srf log
+  0   0   0   1   1   1
+!bcx dcx pfq zfq zcq
+  0   1   0   0   0
+!dens   grav
+ 1.2041 9.8055
+! 0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 <- extra[]
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+0 ! rvals:
+!valZ valD valC
+   0    0    0
+!cfd   cfdcnvg  var zref maxi dtcmo solv smooth   cnvgUVW     cnvgT
+   0  1.00e-02    0    0 1000     1    1      1  1.00e-03  1.00e-03
+-999
+5 ! contaminants:
+   1 2 3 4 5
+5 ! species:
+! # s t   molwt    mdiam       edens       decay         Dm         CCdef        Cp          Kuv     u[5]      name
+  1 1 0  28.0100  0.0000e+00  0.0000e+00  0.0000e+00  2.0800e-05  0.0000e+00  1.0000e+03  0.0000e+00 0 0 0 0 0 CO
+fix specific heat
+  2 1 0  44.0100  0.0000e+00  0.0000e+00  0.0000e+00  1.6000e-05  6.8389e-04  8.4000e+02  0.0000e+00 1 6 0 2 2 CO2
+
+  3 1 0  46.0000  0.0000e+00  0.0000e+00  0.0000e+00  1.4600e-05  0.0000e+00  1.0000e+03  0.0000e+00 0 0 0 0 0 NO2
+fix heat capacity
+  4 1 0  48.0000  0.0000e+00  0.0000e+00  0.0000e+00  1.6000e-05  0.0000e+00  1.0000e+03  0.0000e+00 0 0 0 2 0 O3
+fix diffusion coeff and specific heat
+  5 1 0  64.0700  0.0000e+00  0.0000e+00  0.0000e+00  1.2200e-05  0.0000e+00  1.0000e+03  0.0000e+00 1 0 0 0 0 SO2
+need to fix specific heat
+-999
+1 ! levels plus icon data:
+! #  refHt   delHt  ni  u  name
+  1   0.000   3.500 37 0 0 <1>
+!icn col row  #
+  14   2   3   0
+  23  12   3   1
+  19  22   3   0
+  19  29   3   0
+  23  38   3   2
+  15  44   3   0
+   7  51   4  -1
+   5   4   5   1
+   5  24   5   2
+ 129  27   5   3
+   5  31   5   3
+ 129  42   5   4
+ 130  51   7   1
+  42  53   7   1
+  18  22  13   0
+  23  25  13   5
+  21  29  13   0
+  27  32  13   6
+  20  44  13   0
+  27  22  15   7
+   5  24  15   4
+ 131  41  15   1
+  23  44  15   8
+  18   2  17   0
+  21  22  17   0
+  27  27  17   9
+  19  31  17   0
+  27  34  17  10
+  20  44  17   0
+   5   4  19   5
+   5  33  19   6
+  17   2  31   0
+  23   8  31  11
+  23  22  31  12
+  21  31  31   0
+  23  38  31  13
+  16  44  31   0
+-999
+3 ! day-schedules:
+! # npts shap utyp ucnv name
+  1   10    0    1    0 Bathroom_ExDay
+
+ 00:00:00 0
+ 07:40:00 1
+ 08:10:00 0
+ 13:00:00 1
+ 13:05:00 0
+ 19:00:00 1
+ 19:05:00 0
+ 20:30:00 1
+ 20:45:00 0
+ 24:00:00 0
+  2    8    0    1    0 Kitchen_ExDay
+
+ 00:00:00 0
+ 07:30:00 1
+ 08:00:00 0
+ 12:30:00 1
+ 13:30:00 0
+ 19:00:00 1
+ 20:00:00 0
+ 24:00:00 0
+  3    4    0    1    0 Window_WintDay
+
+ 00:00:00 0.0222
+ 09:00:00 1
+ 16:00:00 0.0222
+ 24:00:00 0.0222
+-999
+3 ! week-schedules:
+! # utyp ucnv name
+  1    1    0 Bathroom_Exh
+
+ 1 1 1 1 1 1 1 1 1 1 1 1
+  2    1    0 Kitchen_Exhaust
+
+ 2 2 2 2 2 2 2 2 2 2 2 2
+  3    1    0 Windows_Winter
+Air passage details has schedule
+ 3 3 3 3 3 3 3 3 3 3 3 3
+-999
+2 ! wind pressure profiles:
+1 4 2 test2
+
+   0.0      1
+  90.0      0
+ 270.0      0
+ 360.0      1
+2 2 1 testWind
+
+   0.0      1
+ 360.0      1
+-999
+0 ! kinetic reactions:
+-999
+0 ! filter elements:
+-999
+0 ! filters:
+-999
+1 ! source/sink elements:
+1 CO2 dvs carpet
+
+ 0.138889 40 5 0
+-999
+4 ! flow elements:
+1 23 plr_leak1 MClosedDoor_Ext
+
+ 5.34053e-05 0.0969042 0.65 1 4 0.08436 0 0 0 2 2 0
+2 23 plr_leak1 MClosedDoor_Int
+
+ 5.2123e-05 0.0950663 0.65 1 4 0.08276 0 0 0 2 2 0
+3 27 dor_door MOpenDoor_Int
+
+ 0.0763154 1.80465 0.5 0.01 2.045 0.8 0.78 0 0 0
+4 23 plr_leak1 MOpenWindow
+
+ 0.000397512 0.540641 0.65 0.6 10 0.9 0 0 0 2 2 0
+-999
+0 ! duct elements:
+-999
+0 ! control super elements:
+-999
+0 ! control nodes:
+-999
+1 ! simple AHS:
+! # zr# zs# pr# ps# px# name
+  1   7   8  14  15  16 -1 main_AHS
+
+-999
+8 ! zones:
+! Z#  f  s#  c#  k#  l#  relHt    Vol  T0  P0  name  clr uH uT uP uV axs cdvf <cdvfName> cfd <cfdName> <1dData:>
+   1  3   0   0   0   1   0.000 61.25 293.65 0 Bedroom1 38 0 2 0 0 0 0 0
+   2  3   0   0   0   1   0.000 15.3125 293.65 0 Bathroom 38 0 2 0 0 0 0 0
+   3  3   0   0   0   1   0.000 32.8125 293.65 0 Kitchen 38 0 2 0 0 0 0 0
+   4  3   0   0   0   1   0.000 19.25 293.65 0 Hallway 38 0 2 0 0 0 0 0
+   5  3   0   0   0   1   0.000 88.8125 293.65 0 Living_Room 38 0 2 0 0 0 0 0
+   6  3   0   0   0   1   0.000 39.8125 293.65 0 Bedroom2 38 0 2 0 0 0 0 0
+   7 10   0   0   0   1   0.000     0 293.65 0 main_AHS(Ret) -1 0 2 0 0 0 0 0
+   8 10   0   0   0   1   0.000     0 293.65 0 main_AHS(Sup) -1 0 2 0 0 0 0 0
+-999
+40 ! initial zone concentrations:
+! Z#         CO        CO2        NO2         O3        SO2
+   1  0.000e+00  0.000e+00  0.000e+00  0.000e+00  0.000e+00
+   2  0.000e+00  0.000e+00  0.000e+00  0.000e+00  0.000e+00
+   3  0.000e+00  0.000e+00  0.000e+00  0.000e+00  0.000e+00
+   4  0.000e+00  0.000e+00  0.000e+00  0.000e+00  0.000e+00
+   5  0.000e+00  0.000e+00  0.000e+00  0.000e+00  0.000e+00
+   6  0.000e+00  0.000e+00  0.000e+00  0.000e+00  0.000e+00
+   7  0.000e+00  6.839e-04  0.000e+00  0.000e+00  0.000e+00
+   8  0.000e+00  6.839e-04  0.000e+00  0.000e+00  0.000e+00
+-999
+16 ! flow paths:
+! P#    f  n#  m#  e#  f#  w#  a#  s#  c#  l#    X       Y      relHt  mult wPset wPmod wazm Fahs Xmax Xmin icn dir u[4] cdvf <cdvfName> cfd <cfdData[4]>
+   1    0  -1   1   4   0   0   0   3   0   1   0.000   0.000   1.750 1 0 0 0 0 0 0  23  4 26 0 0 0 0 0 0
+   2    0  -1   3   4   0   0   0   3   0   1   0.000   0.000   1.750 1 0.5 0 0 0 0 0  23  4 26 0 0 0 0 0 0
+   3    8   2   7   0   0   0   1   1   0   1   0.000   0.000   0.000 1 0 0 0 0.0301025 0 0 129  5 -1 0 0 0 2 0 0
+   4    8   3   7   0   0   0   1   2   0   1   0.000   0.000   0.000 1 0 0 0 0.0301025 0 0 129  5 -1 0 0 0 2 0 0
+   5    0   4   2   2   0   0   0   0   0   1   0.000   0.000   0.000 1 0 0 -1 0 0 0  23  1 11 0 0 0 0 0 0
+   6    0   4   3   3   0   0   0   0   0   1   0.000   0.000   0.000 1 0 0 -1 0 0 0  27  1 31 0 0 0 0 0 0
+   7    0   1   4   3   0   0   0   0   0   1   0.000   0.000   0.000 1 0 0 -1 0 0 0  27  2 31 0 0 0 0 0 0
+   8    0  -1   4   1   0   0   0   0   0   1   0.000   0.000   1.750 1 0 0 -1 0 0 0  23  5 11 0 0 0 0 0 0
+   9    0   5   4   3   0   0   0   0   0   1   0.000   0.000   0.000 1 0 0 -1 0 0 0  27  1 31 0 0 0 0 0 0
+  10    0   4   6   3   0   0   0   0   0   1   0.000   0.000   0.000 1 0 0 -1 0 0 0  27  4 31 0 0 0 0 0 0
+  11    0  -1   5   4   0   0   0   3   0   1   0.000   0.000   1.750 1 0.5 0 180 0 0 0  23  1 26 0 0 0 0 0 0
+  12    1  -1   5   4   0   0   0   3   0   1   0.000   0.000   1.750 1 0.5 0 180 0 0 0  23  1 26 0 0 0 0 0 0
+  13    0  -1   6   4   0   0   0   3   0   1   0.000   0.000   1.750 1 0.5 0 180 0 0 0  23  1 26 0 0 0 0 0 0
+  14   16   7   8   0   0   0   0   0   0   1   0.000   0.000   1.750 1 0 0 -1 0 0 0   0  6 -1 0 0 0 0 0 0
+  15   32  -1   8   0   0   0   0   0   0   1   0.000   0.000   1.750 1 0 0 -1 0 0 0   0  6 -1 0 0 0 0 0 0
+  16   64   7  -1   0   0   0   0   0   0   1   0.000   0.000   1.750 1 0 0 -1 0 0 0   0  6 -1 0 0 0 0 0 0
+-999
+0 ! duct junctions:
+-999
+0 ! initial junction concentrations:
+-999
+0 ! duct segments:
+-999
+0 ! source/sinks:
+-999
+1 ! occupancy schedules:
+1 8 0 PersonA
+
+ 00:00:00 1   0.000   0.000   0.000
+ 07:30:00 3   0.000   0.000   0.000
+ 08:30:00 -1   0.000   0.000   0.000
+ 17:30:00 5   0.000   0.000   0.000
+ 19:30:00 3   0.000   0.000   0.000
+ 20:30:00 5   0.000   0.000   0.000
+ 22:30:00 1   0.000   0.000   0.000
+ 24:00:00 1   0.000   0.000   0.000
+-999
+1 ! exposures:
+1 0 0 1 -1
+
+ 1 1 1 1 1 1 1 1 1 1 1 1 ! occ. schd
+-999
+1 ! annotations:
+1 -1 Need to check AHS flow rate. Adjust exhausts as well
+-999
+* end project file.
