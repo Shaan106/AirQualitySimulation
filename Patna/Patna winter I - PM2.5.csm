@@ -1,0 +1,25 @@
+Project:  C:\Users\Shaan\Desktop\Air pol research\CONTAM simulations\Final Simulations\Patna\Patna winter I - PM2.5.prj
+
+6	contaminants
+Name	EffDens	MeanDiameter
+CO	     0	     0
+CO2	     0	     0
+NO2	     0	     0
+O3	     0	     0
+PM2.5	     0	2.5e-06
+SO2	     0	     0
+
+Interactions with ambient.
+contaminant	mass from	mass to [kg]
+CO	0.00000e+00	0.00000e+00
+CO2	1.26697e+02	1.26697e+02
+NO2	0.00000e+00	0.00000e+00
+O3	0.00000e+00	0.00000e+00
+PM2.5	2.26016e-02	2.25639e-02
+SO2	0.00000e+00	0.00000e+00
+
+Simulation time:
+2678400	seconds
+744	hours
+31	days
+
